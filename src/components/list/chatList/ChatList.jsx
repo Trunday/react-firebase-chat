@@ -17,6 +17,27 @@ const ChatList = () => {
           onClick={() => setAddMode((p) => !p)}
         />
       </div>
+      <div className="item">
+        <img src="./avatar.png" alt="" />
+        <div className="texts">
+          <span>Musa Büyükkaba</span>
+          <p>Merhaba</p>
+        </div>
+      </div>
+      <div className="item">
+        <img src="./avatar.png" alt="" />
+        <div className="texts">
+          <span>Musa Büyükkaba</span>
+          <p>Merhaba</p>
+        </div>
+      </div>
+      <div className="item">
+        <img src="./avatar.png" alt="" />
+        <div className="texts">
+          <span>Musa Büyükkaba</span>
+          <p>Merhaba</p>
+        </div>
+      </div>
     </div>
   );
 };
