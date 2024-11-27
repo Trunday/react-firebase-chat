@@ -2,7 +2,7 @@ import "./chat.css";
 
 const Chat = () => {
   return (
-    <div className="chat">
+    <div className="chat" style={{ overflow: "hidden", scrollbarWidth: "none" }}>
       <div className="top">
         <div className="user">
             <img src="./avatar.png" alt="" />
