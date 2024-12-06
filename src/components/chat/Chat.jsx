@@ -5,11 +5,11 @@ const Chat = () => {
     <div className="chat">
       <div className="top">
         <div className="user">
-            <img src="./avatar.png" alt="" />
-            <div className="texts">
-              <span>Musa B.</span>
-              <p>Lorem ipsum dolor, sit amet.</p>
-            </div>
+          <img src="./avatar.png" alt="" />
+          <div className="texts">
+            <span>Musa B.</span>
+            <p>Lorem ipsum dolor, sit amet.</p>
+          </div>
         </div>
         <div className="icons">
           <img src="./phone.png" alt="" />
@@ -27,8 +27,8 @@ const Chat = () => {
         <input type="text" placeholder="Mesaj Yaz..." />
         <div className="emoji">
           <img src="./emoji.png" alt="" />
-          <button className="sendButton">Gönder</button>
         </div>
+        <button className="sendButton">Gönder</button>
       </div>
     </div>
   );
