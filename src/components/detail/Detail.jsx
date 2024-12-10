@@ -26,14 +26,36 @@ const Detail = () => {
             <span>Paylaşılan Resimler</span>
             <img src="./arrowDown.png" alt="" />
           </div>
-          <div className="photos"></div>
+          <div className="photos">
+            <div className="photoItem">
+              <div className="photoDetail">
+                <img
+                  src="https://images.pexels.com/photos/29633889/pexels-photo-29633889.jpeg"
+                  alt=""
+                />
+                <span>photo_24_new.png</span>
+              </div>
+              <img src="./download.png" alt="" className="icon" />
+            </div>
+            <div className="photoItem">
+              <div className="photoDetail">
+                <img
+                  src="https://images.pexels.com/photos/29633889/pexels-photo-29633889.jpeg"
+                  alt=""
+                />
+                <span>photo_24_new.png</span>
+              </div>
+              <img src="./download.png" alt="" className="icon" />
+            </div>
+          </div>
         </div>
         <div className="option">
           <div className="title">
-            <span>Sohbet Ayarları</span>
+            <span>Paylaşılan Dosyalar.</span>
             <img src="./arrowUp.png" alt="" />
           </div>
         </div>
+        <button>Engelle</button>
       </div>
     </div>
   );
