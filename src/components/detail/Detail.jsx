@@ -56,6 +56,7 @@ const Detail = () => {
           </div>
         </div>
         <button>Engelle</button>
+        <button className="logout">Oturumu Kapat</button>
       </div>
     </div>
   );
