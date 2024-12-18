@@ -19,7 +19,7 @@ const Login = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    const formData = new FormData();
+    const formData = new FormData(e.target);
 
     const { username, email, password } = Object.fromEntries(formData);
 
