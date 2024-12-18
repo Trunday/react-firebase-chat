@@ -17,6 +17,15 @@ const Login = () => {
     }
   };
 
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+
+    const { username, email, password } = Object.fromEntries(formData);
+
+    console.log(username);
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
     // toast.warn("Selam");
@@ -35,7 +44,7 @@ const Login = () => {
       <div className="separator"></div>
       <div className="item">
         <h2>Hesap Oluştur</h2>
-        <form>
+        <form onSubmit={handleRegister}>
           <label htmlFor="file">
             <img src={avatar.url || "./avatar.png"} alt="" />
             Resim Yükle...
