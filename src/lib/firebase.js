@@ -3,7 +3,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
+  apiKey: import.meta.env.M_API_KEY,
   authDomain: import.meta.env.M_authDomain,
   projectId: import.meta.env.M_projectId,
   storageBucket: import.meta.env.M_storageBucket,
