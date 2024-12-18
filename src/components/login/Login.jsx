@@ -40,7 +40,7 @@ const Login = () => {
         chats: [],
       });
 
-      toast.success("Hesap oluşturuldu. Şimdi giriş yaparsın.");
+      toast.success("Hesap oluşturuldu. Şimdi giriş yapa bilirsiniz.");
 
     } catch (err) {
       console.log(err);
