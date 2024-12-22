@@ -4,6 +4,7 @@ import { storage } from "./firebase";
 const upload = async (file) => {
   const date = new Date();
   const storageRef = ref(storage, `images/${date + file.name}`);
+
   const uploadTask = uploadBytesResumable(storageRef, file);
 
   return new Promise((resolve, reject) => {
@@ -12,14 +13,14 @@ const upload = async (file) => {
       (snapshot) => {
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log("Yükleme " + progress + " tamamlandı.");
+        console.log("Upload is " + progress + "% done");
       },
       (error) => {
-        reject("Birşeyler ters gitti. " + error.code);
+        reject("Something went wrong!" + error.code);
       },
       () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((getDownloadURL) => {
-          resolve(getDownloadURL);
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          resolve(downloadURL);
         });
       }
     );
