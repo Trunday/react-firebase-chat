@@ -12,6 +12,8 @@ const Login = () => {
     url: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleAvatar = (e) => {
     if (e.target.files[0]) {
       setAvatar({
@@ -23,6 +25,7 @@ const Login = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData(e.target);
 
     const { username, email, password } = Object.fromEntries(formData);
@@ -38,17 +41,18 @@ const Login = () => {
         avatar: imgUrl,
         id: res.user.uid,
         blocked: [],
-      });      
-      
+      });
+
       await setDoc(doc(db, "userchats", res.user.uid), {
         chats: [],
       });
 
       toast.success("Hesap oluşturuldu. Şimdi giriş yapa bilirsiniz.");
-
     } catch (err) {
       console.log(err);
       toast.warning(err.message);
+    } finally {
+      setLoading(false);
     }
 
     //  console.log(username);
@@ -66,7 +70,9 @@ const Login = () => {
         <form onSubmit={handleLogin}>
           <input type="text" placeholder="Email" name="email" />
           <input type="password" placeholder="Şifre" name="password" />
-          <button>Giriş Yap</button>
+          <button disabled={loading}>
+            {loading ? "Yükleniyor..." : "Giriş Yap"}
+          </button>
         </form>
       </div>
       <div className="separator"></div>
@@ -86,7 +92,9 @@ const Login = () => {
           <input type="text" placeholder="Kullanıcı Adı" name="username" />
           <input type="text" placeholder="Email" name="email" />
           <input type="password" placeholder="Şifre" name="password" />
-          <button>Kaydol</button>
+          <button disabled={loading}>
+            {loading ? "Yükleniyor..." : "Kaydol"}
+          </button>
         </form>
       </div>
     </div>
