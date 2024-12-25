@@ -1,7 +1,10 @@
 import { useState } from "react";
 import "./login.css";
 import { toast } from "react-toastify";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth, db } from "../../lib/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import upload from "../../lib/upload";
@@ -58,9 +61,24 @@ const Login = () => {
     //  console.log(username);
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     // toast.warn("Selam");
+
+    try {
+      setLoading(true);
+      const formData = new FormData(e.target);
+      const { email, password } = Object.fromEntries(formData);
+
+      await signInWithEmailAndPassword(auth, email, password);
+
+      toast.success("Giriş başarılı");
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
