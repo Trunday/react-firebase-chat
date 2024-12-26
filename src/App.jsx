@@ -6,7 +6,8 @@ import Notification from "./components/notification/Notification";
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./lib/firebase";
-import { useUserStore } from ".lib/userStore";
+import { useUserStore } from "./lib/userStore";
+
 
 const App = () => {
   //  const user = false;
