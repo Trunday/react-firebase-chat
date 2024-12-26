@@ -1,8 +1,8 @@
 import { doc, getDoc } from "firebase/firestore";
-import create from "zustand";
+import { create } from "zustand";
 import { db } from "./firebase";
 
-export const useUserStore = create((set) => ({
+const useUserStore = create((set) => ({
   currentUser: null,
   isLoading: true,
   fetchUserInfo: async (uid) => {
@@ -23,3 +23,5 @@ export const useUserStore = create((set) => ({
     }
   },
 }));
+
+export default useUserStore;
