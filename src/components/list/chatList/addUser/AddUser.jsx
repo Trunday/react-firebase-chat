@@ -1,5 +1,6 @@
 import "./addUser.css";
 import { db } from "../../../../lib/firebase";
+import { useUserStore } from "../../../../lib/userStore";
 import {
   arrayUnion,
   collection,
@@ -12,27 +13,22 @@ import {
   where,
 } from "firebase/firestore";
 import { useState } from "react";
-import { useUserStore } from "../../../../lib/userStore";
 
 const AddUser = () => {
   const [user, setUser] = useState(null);
-
   const { currentUser } = useUserStore();
 
   const handleSearch = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const username = formData.get("username");
-
     try {
       const userRef = collection(db, "users");
-
       const q = query(userRef, where("username", "==", username));
+      const querySnapshot = await getDocs(q);
 
-      const querySnapShot = await getDocs(q);
-
-      if (!querySnapShot.empty) {
-        setUser(querySnapShot.docs[0].data());
+      if (!querySnapshot.empty) {
+        setUser(querySnapshot.docs[0].data());
       }
     } catch (err) {
       console.log(err);
@@ -42,10 +38,8 @@ const AddUser = () => {
   const handleAdd = async () => {
     const chatRef = collection(db, "chats");
     const userChatsRef = collection(db, "userchats");
-
     try {
       const newChatRef = doc(chatRef);
-
       await setDoc(newChatRef, {
         createdAt: serverTimestamp(),
         messages: [],
@@ -74,10 +68,10 @@ const AddUser = () => {
   };
 
   return (
-    <div className="addUser">
+    <div className="adduser">
       <form onSubmit={handleSearch}>
-        <input type="text" placeholder="Username" name="username" />
-        <button>Search</button>
+        <input type="text" placeholder="Kullanıcı Adı" name="username" />
+        <button>Ara</button>
       </form>
       {user && (
         <div className="user">
@@ -85,7 +79,7 @@ const AddUser = () => {
             <img src={user.avatar || "./avatar.png"} alt="" />
             <span>{user.username}</span>
           </div>
-          <button onClick={handleAdd}>Add User</button>
+          <button onClick={handleAdd}>Kullanıcı Ekle</button>
         </div>
       )}
     </div>
