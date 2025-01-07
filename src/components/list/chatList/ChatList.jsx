@@ -87,7 +87,7 @@ const ChatList = () => {
             <span>{chat.user.username}</span>
             <p>{
               chat.lastMessage}{
-              console.log(chat)
+              //console.log(chat)
               }</p>
           </div>
         </div>
