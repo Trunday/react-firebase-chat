@@ -99,3 +99,58 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .detail {
+    .user {
+      padding: 20px 10px;
+
+      img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    .info {
+      padding: 10px;
+      gap: 15px;
+
+      .option {
+        .title {
+          img {
+            width: 25px;
+            height: 25px;
+          }
+        }
+
+        .photos {
+          gap: 10px;
+
+          .photoItem {
+            .photoDetail {
+              gap: 10px;
+
+              img {
+                width: 30px;
+                height: 30px;
+              }
+
+              span {
+                font-size: 12px;
+              }
+            }
+
+            .icon {
+              width: 25px;
+              height: 25px;
+            }
+          }
+        }
+      }
+
+      button {
+        padding: 10px;
+      }
+    }
+  }
+}
