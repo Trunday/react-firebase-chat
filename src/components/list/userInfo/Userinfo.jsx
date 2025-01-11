@@ -1,5 +1,5 @@
-import { useUserStore } from "../../../lib/userStore";
 import "./userInfo.css";
+import { useUserStore } from "../../../lib/userStore";
 
 const Userinfo = () => {
   const { currentUser } = useUserStore();

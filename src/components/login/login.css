@@ -45,7 +45,7 @@
         }
       }
 
-      button{
+      button {
         width: 100%;
         padding: 20px;
         border: none;
@@ -55,7 +55,7 @@
         cursor: pointer;
         font-weight: 500;
 
-        &:disabled{
+        &:disabled {
           cursor: not-allowed;
           background-color: #1f8ff19c;
         }
@@ -63,7 +63,7 @@
     }
   }
 
-  .separator{
+  .separator {
     height: 80%;
     width: 2px;
     background-color: #dddddd35;
